@@ -1,0 +1,12 @@
+- name: creating a test playbook
+  hosts: all
+  become: true
+  tasks:
+  - name: create user
+    ansible.builtin.user:
+      name: test-user
+      state: present
+  - name: install package
+    ansible.builtin.dnf:
+      name: httpd
+      state: present
